@@ -1,0 +1,70 @@
+#Basics Functions which are needed to create an image
+
+------------------------------------------------------------------------------------------
+1. glutInit
+void glutInit(int *argcp, char **argv);
+
+glutInit(&argc, argv);
+- initializes the GLUT Library and negotiate a session with the window system.
+
+During this process, glutInit may cause the termination of the GLUT program with 
+an error message to the user if GLUT cannot be properly initialized.
+------------------------------------------------------------------------------------------
+
+2. glutInitDisplayMode
+void glutInitDisplayMode(unsigned int mode);
+
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+- sets the initial display mode.
+
+The initial display mode is used when creating top-level windows, subwindows, 
+and overlays to determine the OpenGL display mode for the to-be-created window or overlay.
+GLUT_SINGLE - allows for display on the single buffer window
+GLUT_RGBA - shows color (Red, green, blue)
+GLUT_DEPTH - allows for depth buffer
+GLUT_DOUBLE - allows for display on the double buffer window
+------------------------------------------------------------------------------------------
+ 
+3. glutInitWindowSize
+void glutInitWindowSize(int width, int height);
+
+glutInitWindowSize(400, 300);  #width and height in pixels
+- Sets initial window size.
+
+The initial value of the initial window size GLUT state is 300 by 300. 
+The initial window size components must be greater than zero.
+------------------------------------------------------------------------------------------
+
+4. glutInitWindowPosition
+void glutInitWindowPosition(int x, int y);
+
+glutInitWindowPosition(100, 100);  #window x and y location in pixels
+- Sets the window position on the screen.
+
+The initial value of the initial window position GLUT state is -1 and -1. If either the X or Y 
+component to the initial window position is negative, the actual window position is left to 
+the window system to determine.
+------------------------------------------------------------------------------------------
+
+* 3 & 4
+- Windows created by glutCreateWindow will be requested to be created with the current initial 
+window position and size.
+- The intent of the initial window position and size values is to provide a suggestion to the 
+window system for a window's initial size and position. The window system is not obligated to 
+use this information.
+------------------------------------------------------------------------------------------
+
+5. glutCreateWindow
+int glutCreateWindow(char *name);
+
+glutCreateWindow("Hello IS246 in B307!");
+- creates a top-level window (opens the screen window)
+
+The name will be provided to the window system as the window's name. The intent is that the 
+window system will label the window with the name.
+Implicitly, the current window is set to the newly created window.
+------------------------------------------------------------------------------------------
+
+** Windows created by glutCreateWindow will be requested to be created with the current initial 
+window position and size.
+------------------------------------------------------------------------------------------

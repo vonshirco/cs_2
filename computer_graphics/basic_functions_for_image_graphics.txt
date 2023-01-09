@@ -1,4 +1,4 @@
-# Basics Functions which are needed to create an image
+# Basics Functions which are needed to open a window to create an image
 
 ------------------------------------------------------------------------------------------
 1. glutInit
